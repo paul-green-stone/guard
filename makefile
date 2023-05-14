@@ -1,9 +1,8 @@
 cc = gcc
 OBJDIR = objects
-OBJS = $(addprefix $(OBJDIR)/, guard.o)
 CFLAGS = -c -Wall -Werror -Wextra
 
-lib: $(OBJS)
+lib: $(OBJDIR)/guard.o
 	ar -rc libguard.a $(OBJS)
 
 $(OBJDIR)/guard.o: guard.h guard.c
