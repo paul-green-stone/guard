@@ -3,7 +3,7 @@ OBJDIR = objects
 CFLAGS = -c -Wall -Werror -Wextra
 
 lib: $(OBJDIR)/guard.o
-	ar -rc libguard.a $(OBJS)
+	ar -rc libguard.a $(OBJDIR)/guard.o
 
 $(OBJDIR)/guard.o: guard.h guard.c
 	$(cc) -g $(CFLAGS) -o $(OBJDIR)/guard.o guard.c
