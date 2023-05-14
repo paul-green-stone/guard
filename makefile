@@ -1,10 +1,12 @@
 cc = gcc
-objs = temp/guard.o
-dirs = temp
-CFLAGS =
+OBJDIR = objects
+CFLAGS = -c -Wall -Werror -Wextra
 
-temp/guard.o:	guard.h guard.c
-	$(cc) -c -g -o temp/guard.o guard.c
+lib: $(OBJDIR)/guard.o
+	ar -rc libguard.a $(OBJS)
+
+$(OBJDIR)/guard.o: guard.h guard.c
+	$(cc) -g $(CFLAGS) -o $(OBJDIR)/guard.o guard.c
 
 .PHONY: clean
 clean:
